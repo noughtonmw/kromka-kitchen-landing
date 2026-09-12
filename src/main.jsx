@@ -1,6 +1,9 @@
 import { StrictMode, useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'
+import kitchenHeroImage from '../assets/kitchen-hero.jpg'
+import kitchenCompactImage from '../assets/kitchen-compact.jpg'
+import kitchenIslandImage from '../assets/kitchen-island.jpg'
 
 const quizQuestions = [
   {
@@ -31,9 +34,9 @@ const quizQuestions = [
 ]
 
 const galleryItems = [
-  { label: 'Новосёлы', title: 'Тёплый дуб + остров', detail: 'Кухня-гостиная 18 м² · 3 сценария хранения · от 389 000 ₽', image: '/assets/kitchen-hero.jpg' },
-  { label: 'Компактная кухня', title: 'Тихая компактная', detail: 'Угловая планировка · встроенная техника · от 219 000 ₽', image: '/assets/kitchen-compact.jpg' },
-  { label: 'Загородный дом', title: 'Графит и орех', detail: 'Остров 2,4 м · 5 посадочных мест · от 459 000 ₽', image: '/assets/kitchen-island.jpg' },
+  { label: 'Новосёлы', title: 'Тёплый дуб + остров', detail: 'Кухня-гостиная 18 м² · 3 сценария хранения · от 389 000 ₽', image: kitchenHeroImage },
+  { label: 'Компактная кухня', title: 'Тихая компактная', detail: 'Угловая планировка · встроенная техника · от 219 000 ₽', image: kitchenCompactImage },
+  { label: 'Загородный дом', title: 'Графит и орех', detail: 'Остров 2,4 м · 5 посадочных мест · от 459 000 ₽', image: kitchenIslandImage },
 ]
 
 function ArrowIcon({ small = false }) {
@@ -54,7 +57,7 @@ function Button({ children, onClick, light = false, className = '' }) {
 
 function KitchenDiagram() {
   return <div className="kitchen-visual" aria-label="Готовая кухня из натурального дуба с островом">
-    <img src="/assets/kitchen-hero.jpg" alt="Светлая кухня с островом в реальной квартире" />
+    <img src={kitchenHeroImage} alt="Светлая кухня с островом в реальной квартире" />
     <div className="photo-wash"></div>
     <div className="visual-note visual-note--top">ГОТОВЫЙ РЕЗУЛЬТАТ</div>
     <div className="visual-note visual-note--bottom">фасады: дуб · столешница: камень · свет: тёплый</div>
@@ -158,7 +161,7 @@ function App() {
         <div className="page-shell principle-grid">
           <div className="principle-label">Красивая картинка —<br />только начало.</div>
           <div className="principle-copy"><h2>Сначала — как вы живёте.<br /><span>Потом — как выглядит кухня.</span></h2><p>За 1 встречу собираем ваш сценарий, показываем до 3 вариантов планировки и закладываем 20+ точек хранения там, где раньше было пусто или неудобно.</p><Button onClick={openQuiz} light>Показать мой сценарий</Button></div>
-          <div className="principle-photo"><img src="/assets/kitchen-compact.jpg" alt="Компактная кухня с оливковыми фасадами" /><div className="principle-photo-note"><strong>20+</strong><span>точек хранения<br />вместо пустых углов</span></div><div className="principle-photo-caption">Практичная кухня · 7 м²</div></div>
+          <div className="principle-photo"><img src={kitchenCompactImage} alt="Компактная кухня с оливковыми фасадами" /><div className="principle-photo-note"><strong>20+</strong><span>точек хранения<br />вместо пустых углов</span></div><div className="principle-photo-caption">Практичная кухня · 7 м²</div></div>
         </div>
       </section>
 
@@ -195,7 +198,7 @@ function App() {
         <div className="page-shell process-grid reveal"><div className="process-heading"><h2>От первого «хочу»<br /><span>до кухни без сюрпризов.</span></h2><p>Показываем путь заранее, чтобы решение принималось спокойно — по шагам, а не на эмоциях.</p></div><div className="process-list"><div className="process-item"><span className="process-num">01</span><div><h3>Собираем контекст</h3><p>Планировка, техника, привычки, бюджет. Квиз — короткая версия этого разговора.</p></div><span className="process-time">15 мин</span></div><div className="process-item"><span className="process-num">02</span><div><h3>Находим рабочую схему</h3><p>Показываем, где хранить, готовить и что можно изменить без переплаты.</p></div><span className="process-time">1–2 идеи</span></div><div className="process-item"><span className="process-num">03</span><div><h3>Фиксируем решения</h3><p>Материалы, комплектация и состав работ собраны в понятный ориентир.</p></div><span className="process-time">48 часов</span></div><div className="process-item"><span className="process-num">04</span><div><h3>Передаём в реализацию</h3><p>Следующий шаг — замер, уточнение и договорённости. Только если всё совпало.</p></div><span className="process-time">по желанию</span></div></div></div>
       </section>
 
-      <section className="proof-section page-shell reveal"><div className="proof-header"><div><h2>Дизайн, который<br /><span>можно проверить.</span></h2></div><p className="proof-disclaimer">За каждым проектом — замер, подбор материалов и контроль монтажа.</p></div><div className="case-study"><div className="case-large"><div className="case-label">ПРОЕКТ · 09 М²</div><div className="case-photo"><img src="/assets/kitchen-island.jpg" alt="Графитовая кухня с островом в загородном доме" /><div className="case-photo-badge"><strong>+28%</strong><span>полезного хранения</span></div></div><span className="case-caption">остров стал местом<br />для завтраков и разговоров</span></div><div className="case-stats"><div className="stat-line"><strong>+28%</strong><span>больше полезного хранения<br /><i>в сравнении с прежней схемой</i></span></div><div className="stat-line"><strong>03</strong><span>сценария фасадов<br /><i>на выбор до заказа</i></span></div><div className="stat-line"><strong>01</strong><span>первый эскиз<br /><i>до встречи в салоне</i></span></div><Button onClick={openQuiz} light>Собрать мой кейс</Button></div></div></section>
+      <section className="proof-section page-shell reveal"><div className="proof-header"><div><h2>Дизайн, который<br /><span>можно проверить.</span></h2></div><p className="proof-disclaimer">За каждым проектом — замер, подбор материалов и контроль монтажа.</p></div><div className="case-study"><div className="case-large"><div className="case-label">ПРОЕКТ · 09 М²</div><div className="case-photo"><img src={kitchenIslandImage} alt="Графитовая кухня с островом в загородном доме" /><div className="case-photo-badge"><strong>+28%</strong><span>полезного хранения</span></div></div><span className="case-caption">остров стал местом<br />для завтраков и разговоров</span></div><div className="case-stats"><div className="stat-line"><strong>+28%</strong><span>больше полезного хранения<br /><i>в сравнении с прежней схемой</i></span></div><div className="stat-line"><strong>03</strong><span>сценария фасадов<br /><i>на выбор до заказа</i></span></div><div className="stat-line"><strong>01</strong><span>первый эскиз<br /><i>до встречи в салоне</i></span></div><Button onClick={openQuiz} light>Собрать мой кейс</Button></div></div></section>
 
       <section className="faq-section page-shell reveal" id="faq"><div className="faq-heading"><h2>Вопросы, которые<br /><span>обычно задают вслух.</span></h2></div><div className="faq-list">{[
         ['Можно ли начать, если у меня нет точных замеров?', 'Да. На первом шаге достаточно примерной площади и понимания, что сейчас неудобно. Точные размеры понадобятся перед финальной схемой, а не для первого разговора.'],
